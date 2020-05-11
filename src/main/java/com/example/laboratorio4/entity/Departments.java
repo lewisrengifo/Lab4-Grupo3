@@ -1,6 +1,8 @@
 package com.example.laboratorio4.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="departments")
@@ -9,7 +11,10 @@ public class Departments {
     @Id
     @Column(name = "department_id")
     private int id;
+
     @Column(name = "department_name")
+    @NotBlank
+    @Size(max = 30, message = "el nombre no puede tener más de 30 caracteres")
     private String departmentname;
     @ManyToOne
     @JoinColumn(name = "manager_id")
