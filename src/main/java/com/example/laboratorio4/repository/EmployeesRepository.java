@@ -32,4 +32,14 @@ public interface EmployeesRepository extends JpaRepository<Employees,Integer> {
     List<SalarioMaximo> maximoporDepartamento();
 
 
+
+
+    @Query(value="SELECT e.manager_id as managerid, e.first_name as nombre,\n" +
+            "    e.last_name as apellido, e.salary as salario ,j.job_title as cargo\n" +
+            "    FROM departments d\n" +
+            "    inner join  employees e   on e.department_id=d.department_id\n" +
+            "    inner join jobs j on j.job_id=e.job_id\n" +
+            "    where d.department_id=?",nativeQuery=true)
+    List<SalarioMaximo> empleadosporDepa(int idDepartment);
+
 }
