@@ -13,12 +13,35 @@
     <h1>Empleados con Mayor Salario en la Empresa</h1>
     <!-- COMPLETAR -->
     <table class="table">
-        <thead>
-        <!-- COMPLETAR -->
-        </thead>
-        <tbody>
-        <!-- COMPLETAR -->
-        </tbody>
+        <h4 class="mt-4">Recursos Humanos</h4>
+        <form th:action="@{'/search/buscar'}" method="post">
+            <div class="form-group">
+                <label for="firstname">Nombre</label>
+                <input type="text" class="form-control" name="firstname" id="firstname"/>
+            </div>
+            <a th:href="@{'/search/Salario'}" class="btn btn-danger">limpiar</a>
+            <a th:href="@{'/search'}" class="btn btn-danger">regresar</a>
+            <button type="submit" class="btn btn-primary">buscar</button>
+
+        </form>
+        <table class="table table-sm">
+            <tr>
+                <th>nombre</th>
+                <th>apellido</th>
+                <th>fecha-inicio</th>
+                <th>fecha-fin</th>
+                <th>puesto</th>
+            </tr>
+            <tr th:each="rh : ${listaRecursos}">
+                <td th:text="${rh.getNombre()}">
+                <td th:text="${rh.getApellido()}"></td>
+                <td th:text="${rh.getFechainicio()}"></td>
+                <td th:text="${rh.getFechafin()}"></td>
+                <td th:text="${rh.getPuesto()}"></td>
+
+            </tr>
+
+        </table>
     </table>
 </div>
 </body>

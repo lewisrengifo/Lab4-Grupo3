@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>RECURSOS HUMANOS</title>
+</head>
+<body>
+        <h4 class="mt-4">Recursos Humanos</h4>
+        <table class="table table-sm">
+            <tr>
+                <th>nombre</th>
+                <th>apellido</th>
+                <th>fecha-inicio</th>
+                <th>fecha-fin</th>
+                <th>puesto</th>
+            </tr>
+            <tr th:each="rh : ${listaRecursos}">
+                <td th:text="${rh.getNombre()}">
+                <td th:text="${rh.getApellido()}"></td>
+                <td th:text="${rh.getFechainicio()}"></td>
+                <td th:text="${rh.getFechafin()}"></td>
+                <td th:text="${rh.getPuesto()}"></td>
+
+            </tr>
+        </table>
+</body>
+</html>
