@@ -16,12 +16,30 @@
         <table class="table">
         <thead>
         <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cargo</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Años Trabajados</th>
+            <th>Meses Trabajados</th>
+
             <!-- COMPLETAR-->
         </tr>
         </thead>
         <tbody>
-        <tr th:each="historia : ${listaHistorial}">
-        <!-- COMPLETAR-->
+        <tr th:each="rh, info : ${listarecursos}">
+            <td th:text="${info.index + 1}"></td>
+            <td th:text="${rh.getNombre()}"></td>
+            <td th:text="${rh.getApellido()}"></td>
+            <td th:text="${rh.getCargo()}"></td>
+            <td th:text="${rh.getFechaInicio()}"></td>
+            <td th:text="${rh.getFechaFin()}"></td>
+            <td th:text="${rh.getAñosTrabajados()}"></td>
+
+            <td th:text="${rh.getMeses()}"></td>
+
         </tr>
         </tbody>
     </table>
