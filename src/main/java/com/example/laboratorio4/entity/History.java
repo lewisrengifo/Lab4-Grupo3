@@ -1,6 +1,7 @@
 package com.example.laboratorio4.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.sql.Date;
 
 @Entity
@@ -10,16 +11,20 @@ public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "job_history_id")
+    @NotBlank
     private int id;
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employees employeeid;
     @Column(name = "start_date")
+    @NotBlank
     private Date hiredate;
     @Column(name = "end_date",nullable = false)
+    @NotBlank
     private Date enddate;
     @ManyToOne
     @JoinColumn(name = "job_id")
+    @NotBlank
     private Jobs jobid;
     @ManyToOne
     @JoinColumn(name = "department_id")
