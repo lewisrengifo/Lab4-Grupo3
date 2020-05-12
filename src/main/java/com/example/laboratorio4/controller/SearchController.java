@@ -39,6 +39,10 @@ public class SearchController {
         return "/Search/salario";
     }
 
+    @GetMapping("/info")
+    public String
+
+
     @GetMapping("/listar")
     public String listarEmpleadoDep() {
         //COMPLETAR
